@@ -1,0 +1,85 @@
+==================
+normal statement
+==================
+
+print 123
+
+---
+
+(source_file 
+    (statement 
+        (expression 
+            (cmd 
+                (identifier)) 
+            (argument 
+                (number)))))
+
+
+==================
+normal statements
+==================
+
+print 123
++  23 45
+
+---
+
+(source_file 
+    (statement 
+        (expression 
+            (cmd 
+                (identifier)) 
+            (argument 
+                (number)))) 
+    (statement 
+        (expression 
+            (cmd 
+                (operator))
+            (argument 
+                (number)) 
+            (argument 
+                (number)))))
+
+
+
+==================
+normal statements with identifier
+==================
+
+print  id 23
+
+---
+
+(source_file 
+    (statement 
+        (expression 
+            (cmd 
+                (identifier)) 
+            (argument 
+                (identifier)) 
+            (argument 
+                (number))))) 
+
+
+==================
+Compound statements 
+==================
+
+print  (+ 10 78)
+
+---
+
+(source_file 
+    (statement 
+        (expression 
+            (cmd 
+                (identifier)) 
+            (argument 
+                (compoundExpression 
+                    (expression 
+                        (cmd 
+                            (operator)) 
+                        (argument 
+                            (number)) 
+                        (argument 
+                            (number))))))))
